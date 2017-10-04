@@ -3,7 +3,7 @@
 
 import socket
 
-hote='192.168.3.254'
+hote='192.168.0.223'
 port=25500
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
