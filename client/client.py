@@ -16,9 +16,15 @@ socket.sendto(trame,(hote,port))
 print "message envoyé:", trame[0],trame[1],trame[2],trame[3]
 
 
-data,addr=socket.recvfrom(1024)
-print "message recu: "
-print ord(data[0]),ord(data[1]),ord (data[2]),ord(data[3])
+trameReponse,addr=socket.recvfrom(1024)
+#print "message recu: ",ord(data[0]),ord(data[1]),ord (data[2]),ord(data[3])
+#print "id: ",ord(data[0])
+#print "taille: ",ord(data[1])
+#print "safran: ",ord (data[2])
+#print "GV: ",ord(data[3])
+print "latitude: ",ord(trameReponse[0]),ord(trameReponse[1]),ord(trameReponse[2]),ord(trameReponse[3])
+
+
 
 
 #socket.close
