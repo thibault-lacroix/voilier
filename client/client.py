@@ -19,12 +19,15 @@ print "       "
 
 
 trameReponse,addr=socket.recvfrom(1024)
+latitude1=(ord(trameReponse[3])<<24)+(ord(trameReponse[2])<<16)+(ord(trameReponse[1])<<8)+ord(trameReponse[0])
+longitude1=(ord(trameReponse[7])<<24)+(ord(trameReponse[6])<<16)+(ord(trameReponse[5])<<8)+ord(trameReponse[4])
+
 print "Reponse du serveur: "
 print "         "
-print "latitude: ",hex(ord(trameReponse[3])),hex(ord(trameReponse[2])),",",hex(ord(trameReponse[1])),hex(ord(trameReponse[0]))
-print "longitude: ",ord(trameReponse[7]),ord(trameReponse[6]),ord(trameReponse[5]),ord(trameReponse[4])
-print "Gite: ",ord(trameReponse[8]),"°"
-print "Direction du vent: ",ord(trameReponse[9]),"°"
-print "Vitesse du vent: ",ord(trameReponse[10]),"nd"
+print "latitude: ",float(latitude1)/1000000
+print "longitude: ",float(longitude1)/1000000
+#print "Gite: ",ord(trameReponse[8]),"°"
+#print "Direction du vent: ",ord(trameReponse[9]),"°"
+#print "Vitesse du vent: ",ord(trameReponse[10]),"nd"
 
 #socket.close

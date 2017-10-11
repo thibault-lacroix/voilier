@@ -23,11 +23,11 @@ b6=(longitude>>16)&0xFF
 b5=(longitude>>8)&0xFF
 b4=longitude&0xFF
 
-g0=30 #gite
+#g0=30 #gite
 
-dv=230 #direction du vent
+#dv=230 #direction du vent
 
-vv=10 #vitesse du vent
+#vv=10 #vitesse du vent
 
 
 while True:
@@ -37,11 +37,9 @@ while True:
     print "taille: ",ord(data[1])
     print "safran: ",ord(data[2])
     print "GV: ",ord(data[3])
-    trameReponse=bytearray([b0,b1,b2,b3,b4,b5,b6,b7,g0,dv,vv])
+    trameReponse=bytearray([b0,b1,b2,b3,b4,b5,b6,b7])
     socket.sendto(trameReponse,(addr))
 
 #print "fermeture"
 #client.close()
 #socket.close()
-
-
