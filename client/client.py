@@ -17,17 +17,38 @@ print "message envoyé:", trame[0],trame[1],trame[2],trame[3]
 print "       "
 
 
-
 trameReponse,addr=socket.recvfrom(1024)
-latitude1=(ord(trameReponse[3])<<24)+(ord(trameReponse[2])<<16)+(ord(trameReponse[1])<<8)+ord(trameReponse[0])
+
+latitude1=(ord(trameReponse[3])<<24)|(ord(trameReponse[2])<<16)|(ord(trameReponse[1])<<8)|ord(trameReponse[0])
 longitude1=(ord(trameReponse[7])<<24)+(ord(trameReponse[6])<<16)+(ord(trameReponse[5])<<8)+ord(trameReponse[4])
+b7=ord(trameReponse[7])
+b3=ord(trameReponse[3])
+gite=ord(trameReponse[8])
+dirVent=ord(trameReponse[9])
+vitVent=ord(trameReponse[10])
+long=longitude1
+lat=latitude1
+
+if b7>127:
+	lat=(~lat)&0xFFFFFFFF
+	lat=lat+1
+	lat=lat*-1
+
+
+
+if b3>127:
+	long=(~long)&0xFFFFFFFF
+	long=long+1
+	long=long*-1
+
+
 
 print "Reponse du serveur: "
 print "         "
-print "latitude: ",float(latitude1)/1000000
-print "longitude: ",float(longitude1)/1000000
-#print "Gite: ",ord(trameReponse[8]),"°"
-#print "Direction du vent: ",ord(trameReponse[9]),"°"
-#print "Vitesse du vent: ",ord(trameReponse[10]),"nd"
+print "latitude: ",float(lat)/1000000
+print "longitude: ",float(long)/1000000
+print "Gite: ",gite,"°"
+print "Direction du vent: ",dirVent,"°"
+print "Vitesse du vent: ",vitVent,"nd"
 
 #socket.close
