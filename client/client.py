@@ -26,27 +26,27 @@ b3=ord(trameReponse[3])
 gite=ord(trameReponse[8])
 dirVent=ord(trameReponse[9])
 vitVent=ord(trameReponse[10])
-long=longitude1
-lat=latitude1
-
-if b7>127:
-	lat=(~lat)&0xFFFFFFFF
-	lat=lat+1
-	lat=lat*-1
-
-
+long1=longitude1
+#lat=latitude1
 
 if b3>127:
-	long=(~long)&0xFFFFFFFF
-	long=long+1
-	long=long*-1
+	latitude1=(~latitude1)&0xFFFFFFFF
+	latitude1=latitude1+1
+	latitude1=latitude1*-1
+
+
+
+if b7>127:
+	longitude1=(~longitude1)&0xFFFFFFFF
+	longitude1=longitude1+1
+	longitude1=longitude1*-1
 
 
 
 print "Reponse du serveur: "
 print "         "
-print "latitude: ",float(lat)/1000000
-print "longitude: ",float(long)/1000000
+print "latitude: ",float(latitude1)/1000000
+print "longitude: ",float(longitude1)/1000000
 print "Gite: ",gite,"°"
 print "Direction du vent: ",dirVent,"°"
 print "Vitesse du vent: ",vitVent,"nd"

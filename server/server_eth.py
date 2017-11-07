@@ -11,14 +11,13 @@ print "Demarage du server"
 
 socket.bind((hote,port))
 
-latitude=4840000
+latitude=-5689521
 b3=(latitude>>24)&0xFF
 b2=(latitude>>16)&0xFF
 b1=(latitude>>8)&0xFF
 b0=latitude&0xFF
 
-longitude=-4483330
-
+longitude=4541237
 b7=(longitude>>24)&0xFF
 b6=(longitude>>16)&0xFF
 b5=(longitude>>8)&0xFF
