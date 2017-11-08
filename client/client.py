@@ -26,8 +26,7 @@ b3=ord(trameReponse[3])
 gite=ord(trameReponse[8])
 dirVent=ord(trameReponse[9])
 vitVent=ord(trameReponse[10])
-long1=longitude1
-#lat=latitude1
+
 
 if b3>127:
 	latitude1=(~latitude1)&0xFFFFFFFF
