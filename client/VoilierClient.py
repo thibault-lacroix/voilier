@@ -24,7 +24,12 @@ class VoilierClient:
 		self.socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # Creation de la socket
 
 
-	def txrx(self):
+	def txrx(self,valGV,valSF):
+		
+		self.valGV= valGV
+		self.valSF=valSF
+
+
 		trame = bytearray([self.id,2,self.valSF,self.valGV]) # Definition de la trame
 		self.socket.sendto(trame,(self.ip,self.port)) # Envoi la trame au serveur avec l'ip et le port
 		self.id+=1	# id incrementation de 1 a chaque envoi d'une trame
@@ -57,14 +62,14 @@ class VoilierClient:
 		self.longitude=float(longitude1)/1000000	# Division par 1000000 pour retrouver le nombre initial
 
 
-objetVoilier=VoilierClient() # Nom de l'objet 
-objetVoilier.initCom("127.0.0.1",25500) # Definition d'une IP et d'un port
-objetVoilier.valSF=12 # Valeur du safran
-objetVoilier.valGV=56 # Valeur de la grand voile
-objetVoilier.txrx()
-print "Latitude :",objetVoilier.latitude 				   #
-print "Longitude :",objetVoilier.longitude 	 			   #
-print "Gite :",objetVoilier.gite  						   # Affichage
-print "Vitesse du vent: ",objetVoilier.vVent			   #
-print "Orientation du vent: ",objetVoilier.orientationVent #			
+#objetVoilier=VoilierClient() # Nom de l'objet 
+#objetVoilier.initCom("127.0.0.1",25500) # Definition d'une IP et d'un port
+#objetVoilier.valSF=12 # Valeur du safran
+#objetVoilier.valGV=56 # Valeur de la grand voile
+#objetVoilier.txrx()
+#print "Latitude :",objetVoilier.latitude 				    #
+#print "Longitude :",objetVoilier.longitude 	 			#
+#print "Gite :",objetVoilier.gite  						    # Affichage
+#print "Vitesse du vent: ",objetVoilier.vVent			    #
+#print "Orientation du vent: ",objetVoilier.orientationVent #			
 
