@@ -21,13 +21,13 @@ class VoilierClient:
 	def initCom(self, ip, port):# Def port et ip du serveur
 		self.ipserv=ip
 		self.portserv=port
-		self.socket = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # Creation de la socket
+		self.socket=socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # Creation de la socket
 
 
 	def txrx(self,valGV,valSF):
 		
-		self.valGV = valGV
-		self.valSF = valSF
+		self.valGV=valGV
+		self.valSF=valSF
 
 
 		trame = bytearray([self.id,2,valSF,valGV]) # Definition de la trame

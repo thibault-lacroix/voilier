@@ -31,14 +31,14 @@ class IHM(tk.Frame):
         self.lbVitVentValue = tk.Label(self, text="0")
         self.lbOrientVentValue = tk.Label(self, text="0")
         self.inputIP = tk.Entry(self, width=15)
-        self.inputIP.insert(0,"127.0.0.1")
+        self.inputIP.insert(0,"")
         self.inputPort = tk.Entry(self, width=5)
-        self.inputPort.insert(0,"25500")
+        self.inputPort.insert(0,"")
         self.boutonConnect = tk.Button(self, text="Connect",command=self.connect)
         self.scaleGV = tk.Scale(self, orient=tk.HORIZONTAL, from_=0,to=180,command=self.valueGVChanged)
         self.scaleSafran = tk.Scale(self, orient=tk.HORIZONTAL, from_=0,to=180,command=self.valueSFChanged)
         self.log=tk.Text(self,height=5,bg='black',fg='white')
-        self.bouton_test=tk.Button(self, text="tester",command=self.test)
+        self.bouton_envoi=tk.Button(self, text="Envoi",command=self.test)
 
         #POSITIONNEMENT
         self.titre.grid(row=0,column=0,columnspan=5)
@@ -54,7 +54,7 @@ class IHM(tk.Frame):
 
         self.lbSafran.grid(row=5,column=0,columnspan=2)
         self.scaleSafran.grid(row=6,column=0,columnspan=2)
-        self.bouton_test.grid(row=6,column=2,columnspan=1)
+        self.bouton_envoi.grid(row=5,column=2,columnspan=1)
 
         self.lbGite.grid(row=3,column=3,sticky=tk.E)
         self.lbVitVent.grid(row=4,column=3,sticky=tk.E)
