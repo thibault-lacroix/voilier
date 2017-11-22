@@ -26,11 +26,11 @@ class VoilierClient:
 
 	def txrx(self,valGV,valSF):
 		
-		self.valGV= valGV
-		self.valSF=valSF
+		self.valGV = valGV
+		self.valSF = valSF
 
 
-		trame = bytearray([self.id,2,self.valSF,self.valGV]) # Definition de la trame
+		trame = bytearray([self.id,2,valSF,valGV]) # Definition de la trame
 		self.socket.sendto(trame,(self.ip,self.port)) # Envoi la trame au serveur avec l'ip et le port
 		self.id+=1	# id incrementation de 1 a chaque envoi d'une trame
 		print "message envoyé:", trame[0],trame[1],trame[2],trame[3] # Affiche la trame envoyée
@@ -72,4 +72,3 @@ class VoilierClient:
 #print "Gite :",objetVoilier.gite  						    # Affichage
 #print "Vitesse du vent: ",objetVoilier.vVent			    #
 #print "Orientation du vent: ",objetVoilier.orientationVent #			
-

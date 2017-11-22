@@ -74,11 +74,18 @@ class IHM(tk.Frame):
     def connect(self):
         self.log.insert('1.0',"Connection...\n")
         self.objetVoilier.initCom(self.inputIP.get(),int(self.inputPort.get()))
-        self.log.insert(self.inputIP.get())
-        self.log.insert(self.inputPort.get())
+        self.log.insert('1.0',self.inputPort.get())
+        self.log.insert('1.0',"Port du serveur: ")
+        self.log.insert('1.0',self.inputIP.get())
+        self.log.insert('1.0',"Adresse du serveur: ")
 
     def test(self):
-        self.objetVoiliertxrx(self.scaleSafran.get(),self.scaleGV.get())
+        self.objetVoilier.txrx(self.scaleSafran.get(),self.scaleGV.get())
+        self.lbGiteValue.config(text=self.objetVoilier.gite)
+        self.lbLatitudeValue.config(text=self.objetVoilier.latitude)
+        self.lbLongitudeValue.config(text=self.objetVoilier.longitude)
+        self.lbVitVentValue.config(text=self.objetVoilier.vVent)
+        self.lbOrientVentValue.config(text=self.objetVoilier.orientationVent)
 
 
 
@@ -92,6 +99,3 @@ class IHM(tk.Frame):
 
 monIHM=IHM()
 monIHM.mainloop()
-
-
-
