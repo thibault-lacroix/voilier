@@ -72,11 +72,11 @@ class IHM(tk.Frame):
 
 
     def connect(self):
-        self.log.insert('1.0',"Connection...\n")
+        self.log.insert('1.0',"\nConnection...\n")
         self.objetVoilier.initCom(self.inputIP.get(),int(self.inputPort.get()))
         self.log.insert('1.0',self.inputPort.get())
-        self.log.insert('1.0',"Port du serveur: ")
-        self.log.insert('1.0',self.inputIP.get())
+        self.log.insert('1.0',"\nPort du serveur: ")
+        self.log.insert('1.0', self.inputIP.get())
         self.log.insert('1.0',"Adresse du serveur: ")
 
     def test(self):
